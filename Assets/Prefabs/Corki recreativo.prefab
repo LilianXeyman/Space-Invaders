@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4006a9d72c2b5c842a431ca2a93a53ef, type: 3}
+      propertyPath: m_TagString
+      value: Nave
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -138,6 +142,9 @@ MonoBehaviour:
   velJugador: 20
   min: -11
   max: 19
+  proyectil: {fileID: 566137746270293450, guid: 4f52e9663aee583459b528b866e1bef8, type: 3}
+  tiempoDisparo: 0
+  disparo: 0.8
 --- !u!54 &-1131809413704307391
 Rigidbody:
   m_ObjectHideFlags: 0
