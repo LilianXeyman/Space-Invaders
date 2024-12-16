@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Proyectil
   - Nave
+  - Alien
   layers:
   - Default
   - TransparentFX
