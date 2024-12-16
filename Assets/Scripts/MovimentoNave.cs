@@ -51,9 +51,8 @@ public class MovimentoNave : MonoBehaviour
             movement = -Input.GetAxis("Horizontal");
             Vector3 newPos = gameObject.transform.position;
 
-            newPos.x = Mathf.Clamp(gameObject.transform.position.x + movement * velJugador * Time.deltaTime, min, max);//Clamp hace las multiplicaciones
-                                                                                                                       //transform.position = new Vector3(newPosX, transform.position.y, transform.position.z);
-            gameObject.transform.position = newPos;//Si pongo el Time*deltaTime va con lag. Preguntar si se puede quitar
+            newPos.x = Mathf.Clamp(gameObject.transform.position.x + movement * velJugador * Time.deltaTime, min, max);//Clamp hace las multiplicaciones                                                                                                         
+            gameObject.transform.position = newPos;
             if (Input.GetButton("Jump"))// Para hacerlo mientras se mantiene pulsado habría que ponerle un timer al proyectil
             {
                 if (tiempoDisparo <= 0)
