@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Proyectil : MonoBehaviour
 {
-    public static Proyectil Instance;
     /*[SerializeField]
     Rigidbody proyectilRb;*/
     [SerializeField]
@@ -12,17 +11,6 @@ public class Proyectil : MonoBehaviour
     [SerializeField]
     float fueraDePantalla;
     public GameObject naveElegida;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +30,9 @@ public class Proyectil : MonoBehaviour
     {
         if (other.CompareTag("Nave"))//Capaz es mejor hacerlo con arrays. De esta forma se generaran en base al tag(?)
         {
-            Destroy(gameObject);
+            /*Destroy(gameObject);
             naveElegida = other.gameObject;
-            DontDestroyOnLoad(naveElegida);
+            DontDestroyOnLoad(naveElegida);*/
         }
     }
 }
