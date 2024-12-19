@@ -7,6 +7,9 @@ TagManager:
   - Proyectil
   - Nave
   - Alien
+  - 0
+  - 1
+  - 2
   layers:
   - Default
   - TransparentFX

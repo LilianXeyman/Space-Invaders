@@ -28,11 +28,27 @@ public class Proyectil : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("0"))
+        {
+            EleccionDeNava.instance.naveSeleccionada = 0;
+        }
+        if (other.CompareTag("1"))
+        {
+            EleccionDeNava.instance.naveSeleccionada = 1;
+        }
+        if (other.CompareTag("2"))
+        {
+            EleccionDeNava.instance.naveSeleccionada = 2;
+        }
         if (other.CompareTag("Nave"))//Capaz es mejor hacerlo con arrays. De esta forma se generaran en base al tag(?)
         {
-            /*Destroy(gameObject);
-            naveElegida = other.gameObject;
-            DontDestroyOnLoad(naveElegida);*/
+            //EleccionDeNava.instance.naveSeleccionada = other.gameObject;//Con el array poner el numero 0-1-2 //int.Parse(tempString);
+            //Ponerle vidas a la nave
+        }
+        if (other.CompareTag("Alien"))//Poner las puntuaciones a los aliens
+        {
+            Destroy(gameObject);
+            Destroy(other);
         }
     }
 }

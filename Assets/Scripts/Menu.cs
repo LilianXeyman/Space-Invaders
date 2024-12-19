@@ -33,7 +33,7 @@ public class Menu : MonoBehaviour
     public GameObject[] naves;
     //Posicion para la nave
     [SerializeField]
-    Vector3 posicionNave;
+    public Vector3 posicionNave;
     //Parametros
     [SerializeField]
     float posicionTitulo;
@@ -44,7 +44,7 @@ public class Menu : MonoBehaviour
     [SerializeField]
     float posicionMenu;
     [SerializeField]
-    Vector3 rotacionInicialNave;
+    public Vector3 rotacionInicialNave;
     [SerializeField]
     Vector3 scaladoNave;
     //Posiciones en las pantallas

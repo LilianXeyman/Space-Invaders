@@ -581,6 +581,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104404274}
   m_CullTransparentMesh: 1
+--- !u!1 &233922399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233922400}
+  - component: {fileID: 233922401}
+  - component: {fileID: 233922402}
+  m_Layer: 0
+  m_Name: CrearNave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233922400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233922399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.183955, y: 20.950346, z: 13.37686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &233922401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233922399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388bb0fe87e49b84f98b3259ccb62c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &233922402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233922399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420f5b82314c9104cac1f2d8d11dc5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naveSeleccionada: 0
+  prefabsNaves:
+  - {fileID: 4184381777010498460, guid: d86759d845c9c1340a2b67054a0a017d, type: 3}
+  - {fileID: 2545869383058877103, guid: 5da2d6b636c05d140bd6419a11b2db8f, type: 3}
+  - {fileID: 1541416103042748275, guid: 905d9d72fd357db408e2492b1ae74e62, type: 3}
+  naveCreada: {fileID: 0}
 --- !u!1 &250989272
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &259444331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1064,6 +1127,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494267228}
   m_CullTransparentMesh: 1
+--- !u!1 &502141346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502141348}
+  - component: {fileID: 502141347}
+  m_Layer: 0
+  m_Name: Puntos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &502141347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502141346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54a05a99b1e5ae4a84d4fe20ca1143f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velKoz: {fileID: 0}
+  skarner: {fileID: 0}
+  khaZix: {fileID: 0}
+  reksai: {fileID: 0}
+  sumaVelkoz: 300
+  sumaSkarner: 100
+  sumaKhazix: 200
+  sumaReksai: 400
+  puntosObtenidos: 0
+  puntosTotales: {fileID: 1669747010}
+--- !u!4 &502141348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502141346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.183955, y: 20.950346, z: 13.37686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534253104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,3 +5485,5 @@ SceneRoots:
   - {fileID: 21585961}
   - {fileID: 732492894}
   - {fileID: 1108044010}
+  - {fileID: 233922400}
+  - {fileID: 502141348}
