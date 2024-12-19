@@ -1217,7 +1217,7 @@ MonoBehaviour:
   botonContinuar: {fileID: 1018427723}
   botonOpciones: {fileID: 1834519210}
   botonSalir: {fileID: 688983759}
-  canvasInicio: {fileID: 259444330}
+  canvasInicio: {fileID: 0}
   canvasPartida: {fileID: 572269282}
   nave: {fileID: 0}
   menuOpciones: {fileID: 1445393891}
