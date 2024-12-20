@@ -20,6 +20,10 @@ public class EleccionDeNava : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        else 
+        {
+            Destroy(this);
+        }
     }
     void Start()
     {
