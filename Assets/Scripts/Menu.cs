@@ -88,12 +88,12 @@ public class Menu : MonoBehaviour
         {
             Destroy(this);
         }
+        tiempo = false;
     }
     void Start()
     {
         //booleanos
         comienzaElJuego = false;
-        tiempo= false;
         eleccionPersonaje = false;
         //Canvas
         canvasPartida.SetActive(false);

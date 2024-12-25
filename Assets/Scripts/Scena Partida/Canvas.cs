@@ -60,10 +60,22 @@ public class Canvas : MonoBehaviour
     //Naves
     [SerializeField]
     public GameObject[] naves;
+    //Bolenos
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        Menu.Instance.tiempo= true;
     }
 
     // Update is called once per frame

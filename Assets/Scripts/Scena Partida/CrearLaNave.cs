@@ -22,6 +22,7 @@ public class CrearLaNave : MonoBehaviour
     {
         EleccionDeNava.instance.naveCreada = Instantiate(EleccionDeNava.instance.prefabsNaves[EleccionDeNava.instance.naveSeleccionada], Canvas.Instance.posicionNave, Quaternion.identity);
         EleccionDeNava.instance.naveCreada.transform.Rotate(Canvas.Instance.rotacionInicialNave);
+        Menu.Instance.tiempo = true;
     }
     // Update is called once per frame
     void Update()

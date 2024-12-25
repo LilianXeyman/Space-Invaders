@@ -31,14 +31,17 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("0"))
         {
             EleccionDeNava.instance.naveSeleccionada = 0;
+            Menu.Instance.tiempo = true;
         }
         if (other.CompareTag("1"))
         {
             EleccionDeNava.instance.naveSeleccionada = 1;
+            Menu.Instance.tiempo = true;
         }
         if (other.CompareTag("2"))
         {
             EleccionDeNava.instance.naveSeleccionada = 2;
+            Menu.Instance.tiempo = true;
         }
         if (other.CompareTag("Nave"))//Capaz es mejor hacerlo con arrays. De esta forma se generaran en base al tag(?)
         {
