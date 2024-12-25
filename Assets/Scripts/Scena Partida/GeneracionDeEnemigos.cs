@@ -18,6 +18,8 @@ public class GeneracionDeEnemigos : MonoBehaviour
     [SerializeField]
     float spaceBetweenElementsY;
     [SerializeField]
+    float distanciaInicio;
+    [SerializeField]
     GameObject[] aliens;
     List<List<GameObject>> matrizObjetos = new List<List<GameObject>>();
     // Start is called before the first frame update
@@ -32,7 +34,8 @@ public class GeneracionDeEnemigos : MonoBehaviour
                 Vector3 position = new Vector3(initialPosX, initialPosY, 0.0f);
                 position.x = position.x + i * spaceBetweenElementsX;
                 position.y = position.y - j * spaceBetweenElementsY;
-                GameObject alien = Instantiate(aliens[i], position, Quaternion.identity);//Son 4 filas y 4 tipos de aliens
+                position.z = position.z + distanciaInicio;
+                GameObject alien = Instantiate(aliens[j], position, Quaternion.identity);//Son 4 filas y 4 tipos de aliens
                 alien.name = "Alien(" + i.ToString() + "," + j.ToString() + ")";
                 matrizObjetos[i].Add(alien);
             }
