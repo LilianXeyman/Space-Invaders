@@ -22,6 +22,13 @@ public class GeneracionDeEnemigos : MonoBehaviour
     [SerializeField]
     GameObject[] aliens;
     List<List<GameObject>> matrizObjetos = new List<List<GameObject>>();
+    //Proyectil
+    [SerializeField]
+    GameObject proyectilAlien;
+    [SerializeField]
+    float tiempoDisparo;
+    [SerializeField]
+    float disparo;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,14 +52,28 @@ public class GeneracionDeEnemigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*  int ultimoElementoActivo = -1;
-            for (int i = 0; i < totalRow;i++)
+        tiempoDisparo = tiempoDisparo - Time.deltaTime;
+        if (tiempoDisparo <= 0)
+        {
+            int ultimoElementoActivo = -1;
+            int column = Random.Range(0, totalColumns);//Disparará de forma aleatoria cualquier alien de la primera fila
+            for (int i = 0; i < totalRows; i++)
             {
-                if (matrizObjetos[randX][i].activeSelf == true)
+                if (matrizObjetos[column][i] != null && matrizObjetos[column][i].activeSelf == true)
                 {
                     ultimoElementoActivo = i;
                 }
             }
-            Debug.Log("Ultimo elemento activo " + randX + ", " + ultimoElementoActivo);*/
+            if (ultimoElementoActivo != -1) // Si se encontró un elemento activo
+            {
+                // Instanciar el proyectil desde la posición del último elemento activo
+                Vector3 posicionDisparo = matrizObjetos[column][ultimoElementoActivo].transform.position;
+                tiempoDisparo = disparo;
+                Instantiate(proyectilAlien, posicionDisparo, Quaternion.identity);
+
+            }
+
+            Debug.Log("Ultimo elemento activo " + column + ", " + ultimoElementoActivo);
+        }
     }
 }

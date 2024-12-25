@@ -51,7 +51,11 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("Alien"))//Poner las puntuaciones a los aliens
         {
             Destroy(gameObject);
-            Destroy(other);
+            LeanTween.rotateZ(other.gameObject, 180, 0.25f);
+            LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
+            {
+                Destroy(other.gameObject);
+            });
         }
     }
 }

@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebac3b9efb913004b92aacdf6a617b72, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8129706577100973386}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebac3b9efb913004b92aacdf6a617b72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2415394302175601387}
   m_SourcePrefab: {fileID: 100100000, guid: ebac3b9efb913004b92aacdf6a617b72, type: 3}
 --- !u!1 &2545869383058877103 stripped
 GameObject:
@@ -103,8 +106,8 @@ MonoBehaviour:
   movimientoX: 0
   movement: 0
   velJugador: 20
-  min: -11
-  max: 19
+  min: -16
+  max: 22
   proyectil: {fileID: 566137746270293450, guid: 4f52e9663aee583459b528b866e1bef8, type: 3}
   tiempoDisparo: 0
   disparo: 0.8
@@ -135,3 +138,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-2415394302175601387
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2545869383058877103}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.009512369
+  m_Height: 0.015074499
+  m_Direction: 1
+  m_Center: {x: -0.000001359731, y: -0.000020350097, z: 0.0000028852373}
