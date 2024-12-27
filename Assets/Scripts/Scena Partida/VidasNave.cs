@@ -8,6 +8,9 @@ public class VidasNave : MonoBehaviour
     //Para las vidas de la nave
     [SerializeField]
     public int vidasNave;
+    //Para todo lo relacionado con el canvas
+    [SerializeField]
+    GameObject canvasMuerte;
     private void Awake()
     {
         if (Instance == null)
@@ -22,7 +25,7 @@ public class VidasNave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        canvasMuerte.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class VidasNave : MonoBehaviour
         if (vidasNave <= 0)
         {
             Debug.Log("Sin vidas");
+            canvasMuerte.SetActive(true);
         }
     }
 }

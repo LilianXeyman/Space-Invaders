@@ -62,14 +62,17 @@ public class GeneracionDeEnemigos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tiempoDisparo = tiempoDisparo - Time.deltaTime;
-        if (tiempoDisparo <= 0)
+        if (Canvas.Instance.estaJugando == true)
         {
-            DispararProyectil();
-            tiempoDisparo = disparo;
-        }
+            tiempoDisparo = tiempoDisparo - Time.deltaTime;
+            if (tiempoDisparo <= 0)
+            {
+                DispararProyectil();
+                tiempoDisparo = disparo;
+            }
 
-        MoverFilas();
+            MoverFilas();
+        }
     }
     private void DispararProyectil()
     {

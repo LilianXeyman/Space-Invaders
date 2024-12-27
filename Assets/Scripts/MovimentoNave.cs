@@ -46,7 +46,7 @@ public class MovimentoNave : MonoBehaviour
     void Update()
     {
         tiempoDisparo = tiempoDisparo - Time.deltaTime;
-        if (Menu.Instance.tiempo == true)
+        if (Menu.Instance.tiempo == true || Canvas.Instance.estaJugando == true)
         {
             movement = -Input.GetAxis("Horizontal");
             Vector3 newPos = gameObject.transform.position;
