@@ -16,11 +16,14 @@ public class pUNTOS : MonoBehaviour
     [SerializeField]
     public GameObject reksai;
     //Cuenta de puntos
+    /*[SerializeField]
     int puntosVelkoz;
     [SerializeField]
     int puntosSkarner;
+    [SerializeField]
     int puntosKhazix;
-    int puntosReksai;
+    [SerializeField]
+    int puntosReksai;*/
     [SerializeField]
     int sumaVelkoz;
     [SerializeField]
@@ -48,82 +51,52 @@ public class pUNTOS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActualizarPuntosTotales();
+        //ActualizarPuntosTotales();
     }
     // Update is called once per frame
     void Update()
     {
 
     }
-    private void ActualizarPuntosTotales()
+    /*private void ActualizarPuntosTotales()
     {
-        puntosObtenidos = puntosVelkoz + puntosSkarner + puntosKhazix + puntosReksai;
         puntosTotales.text = puntosObtenidos.ToString("0000000000");
-    }
+    }*/
 
     public void Skarner()
     {
         if (skarner != null)
         {
-            puntosSkarner += sumaSkarner;
-            //Destroy(skarner); // Destruir el objeto Skarner
+            Debug.Log("Suma Skarner: " + sumaSkarner);
+            puntosObtenidos = puntosObtenidos + sumaSkarner;
         }
-        ActualizarPuntosTotales();
+        puntosTotales.text = puntosObtenidos.ToString("000000");
     }
     public void Khazix()
     {
         if (khaZix != null)
         {
-            puntosKhazix += sumaKhazix;
-            //Destroy(skarner); // Destruir el objeto Skarner
+            Debug.Log("Suma Khazix: " + sumaKhazix);
+            puntosObtenidos = puntosObtenidos + sumaKhazix;
         }
-        ActualizarPuntosTotales();
+        puntosTotales.text = puntosObtenidos.ToString("0000000");
     }
     public void Velkoz()
     {
         if (velKoz != null)
         {
-            puntosVelkoz += sumaVelkoz;
-            //Destroy(skarner); // Destruir el objeto Skarner
+            Debug.Log("Suma VelKoz: " + sumaVelkoz);
+            puntosObtenidos = puntosObtenidos + sumaVelkoz;
         }
-        ActualizarPuntosTotales();
+        puntosTotales.text = puntosObtenidos.ToString("0000000");
     }
     public void Reksai()
     {
         if (reksai != null)
         {
-            puntosReksai += sumaReksai;
-            //Destroy(skarner); // Destruir el objeto Skarner
+            Debug.Log("Suma Reksai: " + sumaReksai);
+            puntosObtenidos = puntosObtenidos + sumaReksai;
         }
-        ActualizarPuntosTotales();
+        puntosTotales.text = puntosObtenidos.ToString("0000000");
     }
-    /*private void OnTriggerEnter(Collider other)
-    {
-        // Sumar puntos según el alien que se haya colisionado
-        if (other.CompareTag("Alien"))
-        {
-            if (other.gameObject == velKoz)
-            {
-                puntosVelkoz += sumaVelkoz;
-                Destroy(other.gameObject);
-            }
-            else if (other.gameObject == skarner)
-            {
-                Skarner();
-            }
-            else if (other.gameObject == khaZix)
-            {
-                puntosKhazix += sumaKhazix;
-                Destroy(other.gameObject);
-            }
-            else if (other.gameObject == reksai)
-            {
-                puntosReksai += sumaReksai;
-                Destroy(other.gameObject);
-            }
-
-            // Actualizar puntos en pantalla
-            ActualizarPuntosTotales();
-        }
-    }*/
 }

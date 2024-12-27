@@ -49,7 +49,6 @@ public class MovimentoNave : MonoBehaviour
         if (Menu.Instance.tiempo == true)
         {
             movement = -Input.GetAxis("Horizontal");
-            Debug.Log(movement);
             Vector3 newPos = gameObject.transform.position;
 
             newPos.x = Mathf.Clamp(gameObject.transform.position.x + movement * velJugador * Time.deltaTime, min, max);//Clamp hace las multiplicaciones                                                                                                         

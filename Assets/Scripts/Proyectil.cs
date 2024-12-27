@@ -11,6 +11,9 @@ public class Proyectil : MonoBehaviour
     [SerializeField]
     float fueraDePantalla;
     public GameObject naveElegida;
+    //El sistema de puntos me funciona mal voy a probar a poner un contador
+    [SerializeField]
+    float tiempoPuntos;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class Proyectil : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        tiempoPuntos = tiempoPuntos - Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -48,17 +52,33 @@ public class Proyectil : MonoBehaviour
             //EleccionDeNava.instance.naveSeleccionada = other.gameObject;//Con el array poner el numero 0-1-2 //int.Parse(tempString);
             //Ponerle vidas a la nave
         }
-        if (other.CompareTag("Alien"))//Poner las puntuaciones a los aliens
+        if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))//Poner las puntuaciones a los aliens
         {
             Destroy(gameObject);
+            if (other.CompareTag("Skarner") && tiempoPuntos <=0)//En principio ya esta arreglado pero tuve que poner manualmente el tiempo para que se reestableciera que depende de la velocidad de disparo. Si esta se cambia se volveria a tener problemas
+            {
+                pUNTOS.Instance.Skarner();
+                tiempoPuntos = 1;
+            }
+            if (other.CompareTag("Velkoz") && tiempoPuntos <= 0)
+            {
+                pUNTOS.Instance.Velkoz();
+                tiempoPuntos = 1;
+            }
+            if (other.CompareTag("Reksai") && tiempoPuntos <= 0)
+            {
+                pUNTOS.Instance.Reksai();
+                tiempoPuntos = 1;
+            }
+            if (other.CompareTag("Khazix") && tiempoPuntos <= 0)
+            {
+                pUNTOS.Instance.Khazix();
+                tiempoPuntos = 1;
+            }
             LeanTween.rotateZ(other.gameObject, 180, 0.25f);
             LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
             {
                 Destroy(other.gameObject);
-                pUNTOS.Instance.Skarner();
-                pUNTOS.Instance.Velkoz();
-                pUNTOS.Instance.Reksai();
-                pUNTOS.Instance.Khazix();
             });
         }
     }

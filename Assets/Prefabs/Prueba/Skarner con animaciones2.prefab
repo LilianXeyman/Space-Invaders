@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 3468347380927212011}
   m_Layer: 0
   m_Name: Skarner con animaciones2
-  m_TagString: Alien
+  m_TagString: Skarner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

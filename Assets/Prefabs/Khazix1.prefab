@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d92f5eda096ae864fa53c725b1799e2d, type: 3}
       propertyPath: m_TagString
-      value: Alien
+      value: Khazix
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
