@@ -39,6 +39,10 @@ public class GeneracionDeEnemigos : MonoBehaviour
     [SerializeField]
     float limiteMaxX;
     private bool moviendoALaDerecha = true; // Dirección de las filas
+    //Contar los aliens (Condicion de victoria)
+    public int aliensTotales;
+    [SerializeField]
+    GameObject canvasVictoria;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +61,8 @@ public class GeneracionDeEnemigos : MonoBehaviour
                 matrizObjetos[i].Add(alien);
             }
         }
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        Debug.Log("Aliens Totales: " + aliensTotales);
     }
 
     // Update is called once per frame
@@ -73,6 +79,29 @@ public class GeneracionDeEnemigos : MonoBehaviour
 
             MoverFilas();
         }
+        if (aliensTotales <= 1) 
+        { 
+           canvasVictoria.SetActive(true); //Crear logica siguiente nivel aumentando una fila y la vel de los aliens
+        }
+    }
+    public void AumentaNivel() //Poner que cuando se le de al boton de siguiente nivel el totalColumns o el totalRow aumente en 1
+    {
+        for (int i = 0; i < totalColumns; i++)
+        {
+            matrizObjetos.Add(new List<GameObject>());
+            for (int j = 0; j < totalRows; j++)
+            {
+                Vector3 position = new Vector3(initialPosX, initialPosY, 0.0f);
+                position.x = position.x + i * spaceBetweenElementsX;
+                position.y = position.y - j * spaceBetweenElementsY;
+                position.z = position.z + distanciaInicio;
+                GameObject alien = Instantiate(aliens[j], position, Quaternion.identity);//Son 4 filas y 4 tipos de aliens
+                alien.name = "Alien(" + i.ToString() + "," + j.ToString() + ")";
+                matrizObjetos[i].Add(alien);
+            }
+        }
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        Debug.Log(aliensTotales);
     }
     private void DispararProyectil()
     {
