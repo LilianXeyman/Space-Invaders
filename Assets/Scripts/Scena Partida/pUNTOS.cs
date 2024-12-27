@@ -5,17 +5,19 @@ using TMPro;
 
 public class pUNTOS : MonoBehaviour
 {
+    public static pUNTOS Instance;
     //Tipos de Aliens//Poner los GameObjects
     [SerializeField]
-    GameObject velKoz;
+    public GameObject velKoz;
     [SerializeField]
-    GameObject skarner;
+    public GameObject skarner;
     [SerializeField]
-    GameObject khaZix;
+    public GameObject khaZix;
     [SerializeField]
-    GameObject reksai;
+    public GameObject reksai;
     //Cuenta de puntos
     int puntosVelkoz;
+    [SerializeField]
     int puntosSkarner;
     int puntosKhazix;
     int puntosReksai;
@@ -32,35 +34,96 @@ public class pUNTOS : MonoBehaviour
     //Para el texto en pantalla
     [SerializeField]
     TextMeshProUGUI puntosTotales;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
-        puntosObtenidos = puntosObtenidos + puntosVelkoz + puntosSkarner + puntosKhazix + puntosReksai;
+        ActualizarPuntosTotales();
     }
-
     // Update is called once per frame
     void Update()
     {
+
+    }
+    private void ActualizarPuntosTotales()
+    {
+        puntosObtenidos = puntosVelkoz + puntosSkarner + puntosKhazix + puntosReksai;
         puntosTotales.text = puntosObtenidos.ToString("0000000000");
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void Skarner()
     {
-        //Hacer que cuando el gameObject que tiene el script se desstruya te de puntos dependiendo del alien te da más o menos puntos también puedes poner los aliens segun un tipo de gameObject
-        if (other ==velKoz)
+        if (skarner != null)
         {
-            puntosVelkoz = puntosVelkoz + sumaVelkoz;
+            puntosSkarner += sumaSkarner;
+            //Destroy(skarner); // Destruir el objeto Skarner
         }
-        if (other == skarner)
-        {
-            puntosSkarner=puntosSkarner + sumaSkarner;
-        }
-        if (other == khaZix)
-        {
-            puntosKhazix=puntosKhazix + sumaKhazix;
-        }
-        if (other == reksai)
-        {
-            puntosReksai=puntosReksai + sumaReksai;
-        }
+        ActualizarPuntosTotales();
     }
+    public void Khazix()
+    {
+        if (khaZix != null)
+        {
+            puntosKhazix += sumaKhazix;
+            //Destroy(skarner); // Destruir el objeto Skarner
+        }
+        ActualizarPuntosTotales();
+    }
+    public void Velkoz()
+    {
+        if (velKoz != null)
+        {
+            puntosVelkoz += sumaVelkoz;
+            //Destroy(skarner); // Destruir el objeto Skarner
+        }
+        ActualizarPuntosTotales();
+    }
+    public void Reksai()
+    {
+        if (reksai != null)
+        {
+            puntosReksai += sumaReksai;
+            //Destroy(skarner); // Destruir el objeto Skarner
+        }
+        ActualizarPuntosTotales();
+    }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        // Sumar puntos según el alien que se haya colisionado
+        if (other.CompareTag("Alien"))
+        {
+            if (other.gameObject == velKoz)
+            {
+                puntosVelkoz += sumaVelkoz;
+                Destroy(other.gameObject);
+            }
+            else if (other.gameObject == skarner)
+            {
+                Skarner();
+            }
+            else if (other.gameObject == khaZix)
+            {
+                puntosKhazix += sumaKhazix;
+                Destroy(other.gameObject);
+            }
+            else if (other.gameObject == reksai)
+            {
+                puntosReksai += sumaReksai;
+                Destroy(other.gameObject);
+            }
+
+            // Actualizar puntos en pantalla
+            ActualizarPuntosTotales();
+        }
+    }*/
 }

@@ -29,6 +29,16 @@ public class GeneracionDeEnemigos : MonoBehaviour
     float tiempoDisparo;
     [SerializeField]
     float disparo;
+    //Movimiento filas
+    [SerializeField]
+    float velocidadMovimiento = 2.0f;
+    [SerializeField]
+    float desplazamientoVertical = 1.0f;
+    [SerializeField]
+    float limiteMinX;
+    [SerializeField]
+    float limiteMaxX;
+    private bool moviendoALaDerecha = true; // Dirección de las filas
     // Start is called before the first frame update
     void Start()
     {
@@ -55,25 +65,78 @@ public class GeneracionDeEnemigos : MonoBehaviour
         tiempoDisparo = tiempoDisparo - Time.deltaTime;
         if (tiempoDisparo <= 0)
         {
-            int ultimoElementoActivo = -1;
-            int column = Random.Range(0, totalColumns);//Disparará de forma aleatoria cualquier alien de la primera fila
-            for (int i = 0; i < totalRows; i++)
+            DispararProyectil();
+            tiempoDisparo = disparo;
+        }
+
+        MoverFilas();
+    }
+    private void DispararProyectil()
+    {
+        int ultimoElementoActivo = -1;
+        int column = Random.Range(0, totalColumns);//Disparará de forma aleatoria cualquier alien de la primera fila
+        for (int i = 0; i < totalRows; i++)
+        {
+            if (matrizObjetos[column][i] != null && matrizObjetos[column][i].activeSelf == true)
             {
-                if (matrizObjetos[column][i] != null && matrizObjetos[column][i].activeSelf == true)
+                ultimoElementoActivo = i;
+            }
+        }
+        if (ultimoElementoActivo != -1) // Si se encontró un elemento activo
+        {
+            // Instanciar el proyectil desde la posición del último elemento activo
+            Vector3 posicionDisparo = matrizObjetos[column][ultimoElementoActivo].transform.position;
+            Instantiate(proyectilAlien, posicionDisparo, Quaternion.identity);
+            Debug.Log("Ultimo elemento activo " + column + ", " + ultimoElementoActivo);
+        }
+    }
+    private void MoverFilas()
+    {
+        bool cambiarDireccion = false;
+        //Con esto compruebas si la fila necesita ser cambiada de direccion
+        foreach(var columna in matrizObjetos)//El foreach toma un elemento a la vez de la colección y ejecuta un bloque de código con ese elemento
+        {
+            foreach (var alien in columna)
+            {
+                if (alien != null && alien.activeSelf)
                 {
-                    ultimoElementoActivo = i;
+                    if (moviendoALaDerecha && alien.transform.position.x >= limiteMaxX)//Si alcanza el l'imite derecho cambia de direccion
+                    {
+                        cambiarDireccion = true;
+                    }
+                    else if (!moviendoALaDerecha && alien.transform.position.x <= limiteMinX)//Cuando no se mueva hacia la derecha y alcance el limite izq cambia la direccion y el bool
+                    {
+                        cambiarDireccion = true;
+                    }
                 }
             }
-            if (ultimoElementoActivo != -1) // Si se encontró un elemento activo
+        }
+        //Para el movimiento hacia abajo
+        if (cambiarDireccion == true)
+        {
+            moviendoALaDerecha = !moviendoALaDerecha;//Si antes se movia pa un lado ahora cambia la direccion
+            foreach (var columna in matrizObjetos)
             {
-                // Instanciar el proyectil desde la posición del último elemento activo
-                Vector3 posicionDisparo = matrizObjetos[column][ultimoElementoActivo].transform.position;
-                tiempoDisparo = disparo;
-                Instantiate(proyectilAlien, posicionDisparo, Quaternion.identity);
-
+                foreach (var alien in columna)
+                {
+                    if (alien != null && alien.activeSelf)
+                    {
+                        alien.transform.position = alien.transform.position - new Vector3(0, desplazamientoVertical, 0);//Mueve las filas hacia abajo
+                    }
+                }
             }
-
-            Debug.Log("Ultimo elemento activo " + column + ", " + ultimoElementoActivo);
+        }
+        //Para el movimiento lateral
+        float desplazamiento = (moviendoALaDerecha ? 1 : -1) * velocidadMovimiento * Time.deltaTime;//Si moviendoALaDerecha es true, el valor será 1 (hacia la derecha).Si es false, el valor será - 1(hacia la izquierda).Esto determina si el desplazamiento será positivo(derecha) o negativo(izquierda).//El ? Se utiliza para evaluar una condición y devolver un valor basado en el resultado de esa evaluación. Es una forma compacta de escribir un if-else.
+        foreach (var columna in matrizObjetos)
+        {
+            foreach (var alien in columna)
+            {
+                if (alien != null && alien.activeSelf)
+                {
+                    alien.transform.position += new Vector3(desplazamiento, 0, 0);
+                }
+            }
         }
     }
 }

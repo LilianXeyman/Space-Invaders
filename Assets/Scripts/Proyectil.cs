@@ -55,6 +55,10 @@ public class Proyectil : MonoBehaviour
             LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
             {
                 Destroy(other.gameObject);
+                pUNTOS.Instance.Skarner();
+                pUNTOS.Instance.Velkoz();
+                pUNTOS.Instance.Reksai();
+                pUNTOS.Instance.Khazix();
             });
         }
     }
