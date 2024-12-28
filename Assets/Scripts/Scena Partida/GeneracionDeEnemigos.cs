@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GeneracionDeEnemigos : MonoBehaviour
 {
+    public static GeneracionDeEnemigos Instance;
     //Lista de objetos para los aliens
     [SerializeField]
     int totalColumns = 5;
@@ -43,7 +44,17 @@ public class GeneracionDeEnemigos : MonoBehaviour
     public int aliensTotales;
     [SerializeField]
     GameObject canvasVictoria;
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     void Start()
     {
         //Se hara un bucle para que se generen las filas y las columnas
@@ -79,7 +90,8 @@ public class GeneracionDeEnemigos : MonoBehaviour
 
             MoverFilas();
         }
-        if (aliensTotales <= 1) 
+        Debug.Log("Aliens Totales: " + aliensTotales);
+        if (aliensTotales <= 1) //???????????
         { 
            canvasVictoria.SetActive(true); //Crear logica siguiente nivel aumentando una fila y la vel de los aliens
         }

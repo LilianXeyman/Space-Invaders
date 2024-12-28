@@ -79,6 +79,7 @@ public class Proyectil : MonoBehaviour
             LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
             {
                 Destroy(other.gameObject);
+                //GeneracionDeEnemigos.Instance.aliensTotales--;
             });
         }
     }

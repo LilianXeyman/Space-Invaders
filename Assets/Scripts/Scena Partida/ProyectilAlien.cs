@@ -30,6 +30,7 @@ public class ProyectilAlien : MonoBehaviour
         {
             VidasNave.Instance.vidasNave = VidasNave.Instance.vidasNave - 1;//Por alguna razon resta de dos en dos
             tiempoNaveHerida = 0.6f;
+            Destroy(gameObject);
         }
     }
 }

@@ -67,7 +67,6 @@ public class pUNTOS : MonoBehaviour
     {
         if (skarner != null)
         {
-            Debug.Log("Suma Skarner: " + sumaSkarner);
             puntosObtenidos = puntosObtenidos + sumaSkarner;
         }
         puntosTotales.text = puntosObtenidos.ToString("000000");
@@ -76,7 +75,6 @@ public class pUNTOS : MonoBehaviour
     {
         if (khaZix != null)
         {
-            Debug.Log("Suma Khazix: " + sumaKhazix);
             puntosObtenidos = puntosObtenidos + sumaKhazix;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
@@ -85,7 +83,6 @@ public class pUNTOS : MonoBehaviour
     {
         if (velKoz != null)
         {
-            Debug.Log("Suma VelKoz: " + sumaVelkoz);
             puntosObtenidos = puntosObtenidos + sumaVelkoz;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
@@ -94,7 +91,6 @@ public class pUNTOS : MonoBehaviour
     {
         if (reksai != null)
         {
-            Debug.Log("Suma Reksai: " + sumaReksai);
             puntosObtenidos = puntosObtenidos + sumaReksai;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");

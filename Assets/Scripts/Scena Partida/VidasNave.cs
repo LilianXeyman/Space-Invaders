@@ -33,7 +33,6 @@ public class VidasNave : MonoBehaviour
     {
         if (vidasNave <= 0)
         {
-            Debug.Log("Sin vidas");
             canvasMuerte.SetActive(true);
         }
     }
