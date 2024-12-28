@@ -24,7 +24,7 @@ public class EfectosDeSonido : MonoBehaviour
         efectosDeSonido.clip = enemyShoot;
         efectosDeSonido.Play();
     }
-    public void Player()
+    public void Nave()
     {
         efectosDeSonido.clip = playerShoot;
         efectosDeSonido.Play();

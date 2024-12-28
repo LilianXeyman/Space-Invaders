@@ -7,21 +7,16 @@ using static MaxPuntuacion;
 public class RecordEnPantalla : MonoBehaviour
 {
     private TextMeshProUGUI textMeshProUGUI;
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     // Para poder cambiar el texto del record
     void Start()
     {
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-        //textMeshProUGUI.text = PlayerPrefs.GetInt("Record").ToString();
+        textMeshProUGUI.text = PlayerPrefs.GetInt("Record").ToString();//Ahora el error esta aqui :( Preguntar
         MaxPuntuacion.Instance.añadirPuntosEvent += CambiarTexto;
-        if (MaxPuntuacion.Instance != null) // Comprobar si MaxPuntuacion.Instance no es null
-        {
-            MaxPuntuacion.Instance.añadirPuntosEvent += CambiarTexto;
-        }
-        else
-        {
-            Debug.LogWarning("MaxPuntuacion.Instance es null. No se pudo suscribir al evento añadirPuntosEvent.");
-        }
     }
     public void CambiarTexto(object sender, MaxPuntuacion.AñadirPuntosEventArgs e)
     {
