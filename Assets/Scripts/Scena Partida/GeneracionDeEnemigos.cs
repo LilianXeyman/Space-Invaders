@@ -133,6 +133,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
             Instantiate(proyectilAlien, posicionDisparo, Quaternion.identity);
             Debug.Log("Ultimo elemento activo " + column + ", " + ultimoElementoActivo);
         }
+        EfectosDeSonido.Instance.Enemy();
     }
     private void MoverFilas()
     {

@@ -66,5 +66,6 @@ public class MovimentoNave : MonoBehaviour
     { 
         tiempoDisparo = disparo;
         GameObject proyectilCreado = Instantiate(proyectil, transform.position, Quaternion.identity);
+        EfectosDeSonido.Instance.Player();
     }
 }

@@ -114,6 +114,7 @@ public class Proyectil : MonoBehaviour
                     });
                // }
             }
+            EfectosDeSonido.Instance.Shoot();
         }
     }
 }

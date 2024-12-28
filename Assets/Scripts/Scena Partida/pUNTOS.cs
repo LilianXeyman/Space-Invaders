@@ -33,10 +33,14 @@ public class pUNTOS : MonoBehaviour
     [SerializeField]
     int sumaReksai;
     [SerializeField]
-    int puntosObtenidos;
+    public int puntosObtenidos;
     //Para el texto en pantalla
     [SerializeField]
     TextMeshProUGUI puntosTotales;
+    [SerializeField]
+    TextMeshProUGUI puntosTotalesFinal;
+    [SerializeField]
+    TextMeshProUGUI puntosTotalesFinalGanar;
     private void Awake()
     {
         if (Instance == null)
@@ -56,7 +60,9 @@ public class pUNTOS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        puntosTotalesFinal.text = puntosObtenidos.ToString("000000");
+        puntosTotalesFinalGanar.text = puntosObtenidos.ToString("000000");
+        MaxPuntuacion.Instance.AñadirPuntos(MaxPuntuacion.Instance.record);
     }
     /*private void ActualizarPuntosTotales()
     {

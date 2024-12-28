@@ -5,8 +5,8 @@ using UnityEngine.Audio;
 
 public class MenuOpciones : MonoBehaviour
 {
-    /*[SerializeField]
-    private AudioMixer audioMixer;
+    [SerializeField]
+    private AudioMixer musica;
 
     [SerializeField]
     private AudioMixer efectosDeSonido;
@@ -18,21 +18,10 @@ public class MenuOpciones : MonoBehaviour
     //Controlador del volumen
     public void CambiarVolumen(float volumen)
     {
-        audioMixer.SetFloat("Volumen", volumen);
+        musica.SetFloat("Musica", volumen);
     }
     public void CambiarVolumenEfectos(float volumen)
     {
-        efectosDeSonido.SetFloat("AudioEfectos", volumen);
+        efectosDeSonido.SetFloat("Efectos De Sonido", volumen);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }*/
 }

@@ -142,12 +142,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movimientoX: 0
   movement: 0
-  velJugador: 20
+  velJugador: 30
   min: -16
   max: 22
   proyectil: {fileID: 566137746270293450, guid: 4f52e9663aee583459b528b866e1bef8, type: 3}
   tiempoDisparo: 0
-  disparo: 0.5
+  disparo: 0.9
+  efectosDeSonido: {fileID: 0}
+  playerShoot: {fileID: 8300000, guid: b879ced845fedb04aba9d519e1c2ce01, type: 3}
 --- !u!54 &-1131809413704307391
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -14,6 +14,10 @@ public class VidasNave : MonoBehaviour
     GameObject canvasMuerte;
     [SerializeField]
     TextMeshProUGUI cuentaVidasNave;
+    [SerializeField]
+    TextMeshProUGUI cuentaVidasNaveMuerte;
+    [SerializeField]
+    TextMeshProUGUI cuentaVidasNaveVictoria;
     private void Awake()
     {
         if (Instance == null)
@@ -35,9 +39,12 @@ public class VidasNave : MonoBehaviour
     void Update()
     {
         cuentaVidasNave.text = vidasNave.ToString();
+        cuentaVidasNaveMuerte.text = vidasNave.ToString();
+        cuentaVidasNaveVictoria.text = vidasNave.ToString();
         if (vidasNave <= 0)
         {
             canvasMuerte.SetActive(true);
+            Canvas.Instance.estaJugando = false;
         }
     }
 }

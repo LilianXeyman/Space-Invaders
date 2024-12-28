@@ -31,6 +31,7 @@ public class ProyectilAlien : MonoBehaviour
             VidasNave.Instance.vidasNave = VidasNave.Instance.vidasNave - 1;
             tiempoNaveHerida = 0.6f;
             Destroy(gameObject);
+            EfectosDeSonido.Instance.Shoot();
         }
     }
 }
