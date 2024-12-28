@@ -147,7 +147,7 @@ MonoBehaviour:
   max: 22
   proyectil: {fileID: 566137746270293450, guid: 4f52e9663aee583459b528b866e1bef8, type: 3}
   tiempoDisparo: 0
-  disparo: 0.8
+  disparo: 0.5
 --- !u!54 &-1131809413704307391
 Rigidbody:
   m_ObjectHideFlags: 0

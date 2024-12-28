@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class VidasNave : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class VidasNave : MonoBehaviour
     //Para todo lo relacionado con el canvas
     [SerializeField]
     GameObject canvasMuerte;
+    [SerializeField]
+    TextMeshProUGUI cuentaVidasNave;
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +34,7 @@ public class VidasNave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cuentaVidasNave.text = vidasNave.ToString();
         if (vidasNave <= 0)
         {
             canvasMuerte.SetActive(true);

@@ -648,6 +648,7 @@ GameObject:
   - component: {fileID: 3987278771347406868}
   - component: {fileID: 8123861576289862886}
   - component: {fileID: 3468347380927212011}
+  - component: {fileID: -2693416424336005483}
   m_Layer: 0
   m_Name: Skarner con animaciones2
   m_TagString: Skarner
@@ -737,6 +738,19 @@ MonoBehaviour:
   max: 22
   intervaloMovimientoVertical: 3
   desplazamientoVertical: 3
+--- !u!114 &-2693416424336005483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645439108011581524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee925ebd2fd86c4fa4d7f61284554fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidas: 4
 --- !u!1 &4734972444621418531
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,7 +62,6 @@ public class pUNTOS : MonoBehaviour
     {
         puntosTotales.text = puntosObtenidos.ToString("0000000000");
     }*/
-
     public void Skarner()
     {
         if (skarner != null)

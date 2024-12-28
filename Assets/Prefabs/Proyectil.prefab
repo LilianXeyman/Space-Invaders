@@ -51,6 +51,11 @@ MonoBehaviour:
   velproyectil: 25
   fueraDePantalla: 50
   naveElegida: {fileID: 0}
+  tiempoPuntos: 0
+  vidasSkarner: 4
+  vidasVelkoz: 2
+  vidasKhazix: 3
+  vidasReksai: 1
 --- !u!54 &8659189009834674463
 Rigidbody:
   m_ObjectHideFlags: 0

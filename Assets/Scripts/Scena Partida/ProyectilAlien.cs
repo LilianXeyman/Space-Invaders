@@ -28,7 +28,7 @@ public class ProyectilAlien : MonoBehaviour
     {
         if (other.CompareTag("Nave") && tiempoNaveHerida <= 0)
         {
-            VidasNave.Instance.vidasNave = VidasNave.Instance.vidasNave - 1;//Por alguna razon resta de dos en dos
+            VidasNave.Instance.vidasNave = VidasNave.Instance.vidasNave - 1;
             tiempoNaveHerida = 0.6f;
             Destroy(gameObject);
         }
