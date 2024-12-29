@@ -1621,7 +1621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &256584158
 Transform:
   m_ObjectHideFlags: 0
@@ -3678,11 +3678,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea300d5675c79514486af63393167021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalColumns: 5
+  totalColumns: 4
   totalRows: 4
   initialPosX: -15
   initialPosY: 35
-  spaceBetweenElementsX: 9
+  spaceBetweenElementsX: 12
   spaceBetweenElementsY: 5
   distanciaInicio: 15
   aliens:
@@ -4652,7 +4652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &784737707
 Transform:
   m_ObjectHideFlags: 0

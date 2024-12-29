@@ -199,9 +199,7 @@ public class Canvas : MonoBehaviour
     public void SiguienteNivel()
     {
         GeneracionDeEnemigos.Instance.canvasVictoria.SetActive(false);
-        GeneracionDeEnemigos.Instance.totalColumns = GeneracionDeEnemigos.Instance.totalColumns + 1;
-        GeneracionDeEnemigos.Instance.velocidadMovimiento = GeneracionDeEnemigos.Instance.velocidadMovimiento + 1;
-        GeneracionDeEnemigos.Instance.CrearNivel();
+        GeneracionDeEnemigos.Instance.AumentaNivel();
     }
     public void Salir()
     {

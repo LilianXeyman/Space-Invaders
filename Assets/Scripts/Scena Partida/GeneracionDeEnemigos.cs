@@ -11,9 +11,9 @@ public class GeneracionDeEnemigos : MonoBehaviour
     [SerializeField]
     int totalRows = 4;
     [SerializeField]
-    float initialPosX;
+    public float initialPosX;
     [SerializeField]
-    float initialPosY;
+    public float initialPosY;
     [SerializeField]
     float spaceBetweenElementsX;
     [SerializeField]
@@ -60,7 +60,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
         CrearNivel();
     }
     //Funcion para llamar al empezar un nuevo nivel
-    public void CrearNivel()
+    private void CrearNivel()
     {
         //Se hara un bucle para que se generen las filas y las columnas
         for (int i = 0; i < totalColumns; i++)
@@ -95,49 +95,80 @@ public class GeneracionDeEnemigos : MonoBehaviour
             MoverFilas();
         }
         Debug.Log("Aliens Totales: " + aliensTotales);
-        if (aliensTotales <= 0) //???????????
+        if (aliensTotales <= 0)
         { 
-           canvasVictoria.SetActive(true); //Crear logica siguiente nivel aumentando una fila y la vel de los aliens
+           canvasVictoria.SetActive(true);
         }
     }
     public void AumentaNivel() //Poner que cuando se le de al boton de siguiente nivel el totalColumns o el totalRow aumente en 1
     {
+        velocidadMovimiento = velocidadMovimiento + 0.5f;
+        totalColumns++;
+        // Vaciar la lista de la matriz
+        matrizObjetos.Clear(); 
+        // Regenerar todas las columnas
         for (int i = 0; i < totalColumns; i++)
         {
             matrizObjetos.Add(new List<GameObject>());
             for (int j = 0; j < totalRows; j++)
             {
                 Vector3 position = new Vector3(initialPosX, initialPosY, 0.0f);
-                position.x = position.x + i * spaceBetweenElementsX;
+                position.x = position.x + i * (spaceBetweenElementsX - 3);
                 position.y = position.y - j * spaceBetweenElementsY;
                 position.z = position.z + distanciaInicio;
-                GameObject alien = Instantiate(aliens[j], position, Quaternion.identity);//Son 4 filas y 4 tipos de aliens
+                GameObject alien = Instantiate(aliens[j], position, Quaternion.identity); // Crear los aliens
                 alien.name = "Alien(" + i.ToString() + "," + j.ToString() + ")";
                 matrizObjetos[i].Add(alien);
             }
         }
         aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
-        Debug.Log(aliensTotales);
+        Debug.Log("Aliens Totales: " + aliensTotales);
     }
-    private void DispararProyectil()
+    private void DispararProyectil()//Mirar este codigo otra vez con calma
     {
+        List<int> columnasConAliensActivos = new List<int>();
+
+        // Identificar columnas con al menos un alien activo
+        for (int i = 0; i < totalColumns; i++)
+        {
+            for (int j = 0; j < totalRows; j++)
+            {
+                if (matrizObjetos[i][j] != null && matrizObjetos[i][j].activeSelf)
+                {
+                    columnasConAliensActivos.Add(i);
+                    break; // No es necesario revisar más filas en esta columna
+                }
+            }
+        }
+
+        // Si no hay columnas con aliens activos, no disparar
+        if (columnasConAliensActivos.Count == 0)
+        {
+            Debug.Log("No hay aliens activos para disparar.");
+            return;
+        }
+
+        // Elegir una columna aleatoria de las que tienen aliens activos
+        int columnaElegida = columnasConAliensActivos[Random.Range(0, columnasConAliensActivos.Count)];
         int ultimoElementoActivo = -1;
-        int column = Random.Range(0, totalColumns);//Disparará de forma aleatoria cualquier alien de la primera fila
+
+        // Buscar el último alien activo en la columna elegida
         for (int i = 0; i < totalRows; i++)
         {
-            if (matrizObjetos[column][i] != null && matrizObjetos[column][i].activeSelf == true)
+            if (matrizObjetos[columnaElegida][i] != null && matrizObjetos[columnaElegida][i].activeSelf)
             {
                 ultimoElementoActivo = i;
             }
         }
-        if (ultimoElementoActivo != -1) // Si se encontró un elemento activo
+
+        // Disparar si se encontró un alien activo
+        if (ultimoElementoActivo != -1)
         {
-            // Instanciar el proyectil desde la posición del último elemento activo
-            Vector3 posicionDisparo = matrizObjetos[column][ultimoElementoActivo].transform.position;
+            Vector3 posicionDisparo = matrizObjetos[columnaElegida][ultimoElementoActivo].transform.position;
             Instantiate(proyectilAlien, posicionDisparo, Quaternion.identity);
-            Debug.Log("Ultimo elemento activo " + column + ", " + ultimoElementoActivo);
+            Debug.Log("Proyectil disparado desde la columna " + columnaElegida + ", fila " + ultimoElementoActivo);
+            EfectosDeSonido.Instance.Enemy();
         }
-        EfectosDeSonido.Instance.Enemy();
     }
     private void MoverFilas()
     {
@@ -149,7 +180,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
             {
                 if (alien != null && alien.activeSelf)
                 {
-                    if (moviendoALaDerecha && alien.transform.position.x >= limiteMaxX)//Si alcanza el l'imite derecho cambia de direccion
+                    if (moviendoALaDerecha && alien.transform.position.x >= limiteMaxX)//Si alcanza el limite derecho cambia de direccion
                     {
                         cambiarDireccion = true;
                     }
