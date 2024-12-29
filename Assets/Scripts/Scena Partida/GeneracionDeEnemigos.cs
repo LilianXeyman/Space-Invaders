@@ -7,7 +7,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
     public static GeneracionDeEnemigos Instance;
     //Lista de objetos para los aliens
     [SerializeField]
-    int totalColumns = 5;
+    public int totalColumns = 5;
     [SerializeField]
     int totalRows = 4;
     [SerializeField]
@@ -32,7 +32,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
     float disparo;
     //Movimiento filas
     [SerializeField]
-    float velocidadMovimiento = 2.0f;
+    public float velocidadMovimiento = 2.0f;
     [SerializeField]
     float desplazamientoVertical = 1.0f;
     [SerializeField]
@@ -43,7 +43,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
     //Contar los aliens (Condicion de victoria)
     public int aliensTotales;
     [SerializeField]
-    GameObject canvasVictoria;
+    public GameObject canvasVictoria;
     private void Awake()
     {
         if (Instance == null)
@@ -57,9 +57,14 @@ public class GeneracionDeEnemigos : MonoBehaviour
     }
     void Start()
     {
+        CrearNivel();
+    }
+    //Funcion para llamar al empezar un nuevo nivel
+    public void CrearNivel()
+    {
         //Se hara un bucle para que se generen las filas y las columnas
         for (int i = 0; i < totalColumns; i++)
-        { 
+        {
             matrizObjetos.Add(new List<GameObject>());
             for (int j = 0; j < totalRows; j++)
             {
@@ -75,7 +80,6 @@ public class GeneracionDeEnemigos : MonoBehaviour
         aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
         Debug.Log("Aliens Totales: " + aliensTotales);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -91,7 +95,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
             MoverFilas();
         }
         Debug.Log("Aliens Totales: " + aliensTotales);
-        if (aliensTotales <= 1) //???????????
+        if (aliensTotales <= 0) //???????????
         { 
            canvasVictoria.SetActive(true); //Crear logica siguiente nivel aumentando una fila y la vel de los aliens
         }

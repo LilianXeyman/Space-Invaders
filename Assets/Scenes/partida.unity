@@ -3698,7 +3698,7 @@ MonoBehaviour:
   limiteMinX: -16
   limiteMaxX: 22
   aliensTotales: 0
-  canvasVictoria: {fileID: 0}
+  canvasVictoria: {fileID: 1997701464}
 --- !u!4 &671808443
 Transform:
   m_ObjectHideFlags: 0
@@ -4859,7 +4859,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 534253107}
         m_TargetAssemblyTypeName: Canvas, Assembly-CSharp
-        m_MethodName: Continuar
+        m_MethodName: SiguienteNivel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

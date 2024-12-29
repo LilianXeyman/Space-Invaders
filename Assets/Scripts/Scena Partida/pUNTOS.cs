@@ -75,6 +75,7 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaSkarner;
         }
         puntosTotales.text = puntosObtenidos.ToString("000000");
+        GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Khazix()
     {
@@ -83,6 +84,7 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaKhazix;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
+        GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Velkoz()
     {
@@ -91,6 +93,7 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaVelkoz;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
+        GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Reksai()
     {
@@ -99,5 +102,6 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaReksai;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
+        GeneracionDeEnemigos.Instance.aliensTotales--;
     }
 }

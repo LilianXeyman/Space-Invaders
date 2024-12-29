@@ -46,19 +46,11 @@ public class Proyectil : MonoBehaviour
             EleccionDeNava.instance.naveSeleccionada = 2;
             Menu.Instance.tiempo = true;
         }
-        if (other.CompareTag("Nave"))//Capaz es mejor hacerlo con arrays. De esta forma se generaran en base al tag(?)
-        {
-            //EleccionDeNava.instance.naveSeleccionada = other.gameObject;//Con el array poner el numero 0-1-2 //int.Parse(tempString);
-            //Ponerle vidas a la nave
-        }
-        if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))//Poner las puntuaciones a los aliens
+        if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))
         {
             Destroy(gameObject);
             if (other.CompareTag("Skarner") && tiempoPuntos <=0)//En principio ya esta arreglado pero tuve que poner manualmente el tiempo para que se reestableciera que depende de la velocidad de disparo. Si esta se cambia se volveria a tener problemas
             {
-                //VidasAliens.Instance.Vidas();
-                //if (VidasAliens.Instance.vidas <= 0)
-                //{
                     pUNTOS.Instance.Skarner();
                     tiempoPuntos = 1;
                     LeanTween.rotateZ(other.gameObject, 180, 0.25f);
@@ -67,13 +59,9 @@ public class Proyectil : MonoBehaviour
                         Destroy(other.gameObject);
                         //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
-                //}
             }
             if (other.CompareTag("Velkoz") && tiempoPuntos <= 0)
             {
-                //VidasAliens.Instance.Vidas();
-                //if (VidasAliens.Instance.vidas <= 0)
-                //{
                     pUNTOS.Instance.Velkoz();
                     tiempoPuntos = 1;
                     LeanTween.rotateZ(other.gameObject, 180, 0.25f);
@@ -82,13 +70,9 @@ public class Proyectil : MonoBehaviour
                         Destroy(other.gameObject);
                         //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
-                //}
             }
             if (other.CompareTag("Reksai") && tiempoPuntos <= 0)
             {
-               // VidasAliens.Instance.Vidas();
-                //if (VidasAliens.Instance.vidas <= 0)
-                //{
                     pUNTOS.Instance.Reksai();
                     tiempoPuntos = 1;
                     LeanTween.rotateZ(other.gameObject, 180, 0.25f);
@@ -97,13 +81,9 @@ public class Proyectil : MonoBehaviour
                         Destroy(other.gameObject);
                         //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
-               // }
             }
             if (other.CompareTag("Khazix") && tiempoPuntos <= 0)
             {
-               // VidasAliens.Instance.Vidas();
-                //if (VidasAliens.Instance.vidas <= 0)
-                //{
                     pUNTOS.Instance.Khazix();
                     tiempoPuntos = 1;
                     LeanTween.rotateZ(other.gameObject, 180, 0.25f);
@@ -112,7 +92,6 @@ public class Proyectil : MonoBehaviour
                         Destroy(other.gameObject);
                         //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
-               // }
             }
             EfectosDeSonido.Instance.Shoot();
         }

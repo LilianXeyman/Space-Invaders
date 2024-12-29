@@ -154,10 +154,6 @@ public class Canvas : MonoBehaviour
         canvasPausa.SetActive(true);
         estaJugando = false;
     }
-    public void NuevaPartida()
-    { 
-     //Poner la otra escena sin el canvas <- Eleccion de personajes
-    }
     public void Continuar()
     {
         Debug.Log("Continua?");
@@ -201,8 +197,11 @@ public class Canvas : MonoBehaviour
         });
     }
     public void SiguienteNivel()
-    { 
-    
+    {
+        GeneracionDeEnemigos.Instance.canvasVictoria.SetActive(false);
+        GeneracionDeEnemigos.Instance.totalColumns = GeneracionDeEnemigos.Instance.totalColumns + 1;
+        GeneracionDeEnemigos.Instance.velocidadMovimiento = GeneracionDeEnemigos.Instance.velocidadMovimiento + 1;
+        GeneracionDeEnemigos.Instance.CrearNivel();
     }
     public void Salir()
     {
