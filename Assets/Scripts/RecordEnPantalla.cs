@@ -7,10 +7,6 @@ using static MaxPuntuacion;
 public class RecordEnPantalla : MonoBehaviour
 {
     private TextMeshProUGUI textMeshProUGUI;
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
     // Para poder cambiar el texto del record
     void Start()
     {

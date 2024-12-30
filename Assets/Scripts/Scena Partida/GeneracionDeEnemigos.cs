@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GeneracionDeEnemigos : MonoBehaviour
 {
@@ -39,11 +40,18 @@ public class GeneracionDeEnemigos : MonoBehaviour
     float limiteMinX;
     [SerializeField]
     float limiteMaxX;
+    [SerializeField]
+    float limiteInferior;
     private bool moviendoALaDerecha = true; // Dirección de las filas
     //Contar los aliens (Condicion de victoria)
     public int aliensTotales;
     [SerializeField]
     public GameObject canvasVictoria;
+    //Para saber el nivel en el que estamos
+    [SerializeField]
+    public int nivel;
+    [SerializeField]
+    public TextMeshProUGUI numeroNivel;
     private void Awake()
     {
         if (Instance == null)
@@ -89,9 +97,15 @@ public class GeneracionDeEnemigos : MonoBehaviour
             if (tiempoDisparo <= 0)
             {
                 DispararProyectil();
-                tiempoDisparo = disparo;
+                if (aliensTotales >= aliensTotales - aliensTotales/2)
+                {
+                    tiempoDisparo = disparo;
+                }
+                else
+                {
+                    tiempoDisparo = disparo - 0.2f;
+                }
             }
-
             MoverFilas();
         }
         Debug.Log("Aliens Totales: " + aliensTotales);
@@ -102,8 +116,10 @@ public class GeneracionDeEnemigos : MonoBehaviour
     }
     public void AumentaNivel() //Poner que cuando se le de al boton de siguiente nivel el totalColumns o el totalRow aumente en 1
     {
+        nivel = nivel + 1;
+        numeroNivel.text = "Nivel " + nivel.ToString();
         velocidadMovimiento = velocidadMovimiento + 0.5f;
-        totalColumns++;
+        totalColumns--;
         // Vaciar la lista de la matriz
         matrizObjetos.Clear(); 
         // Regenerar todas las columnas
@@ -113,7 +129,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
             for (int j = 0; j < totalRows; j++)
             {
                 Vector3 position = new Vector3(initialPosX, initialPosY, 0.0f);
-                position.x = position.x + i * (spaceBetweenElementsX - 3);
+                position.x = position.x + i * (spaceBetweenElementsX + 3);
                 position.y = position.y - j * spaceBetweenElementsY;
                 position.z = position.z + distanciaInicio;
                 GameObject alien = Instantiate(aliens[j], position, Quaternion.identity); // Crear los aliens

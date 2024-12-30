@@ -57,7 +57,6 @@ public class Proyectil : MonoBehaviour
                     LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
                     {
                         Destroy(other.gameObject);
-                        //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
             }
             if (other.CompareTag("Velkoz") && tiempoPuntos <= 0)
@@ -68,7 +67,6 @@ public class Proyectil : MonoBehaviour
                     LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
                     {
                         Destroy(other.gameObject);
-                        //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
             }
             if (other.CompareTag("Reksai") && tiempoPuntos <= 0)
@@ -79,7 +77,6 @@ public class Proyectil : MonoBehaviour
                     LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
                     {
                         Destroy(other.gameObject);
-                        //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
             }
             if (other.CompareTag("Khazix") && tiempoPuntos <= 0)
@@ -90,7 +87,6 @@ public class Proyectil : MonoBehaviour
                     LeanTween.scale(other.gameObject, Vector3.zero, 0.25f).setOnComplete(() =>
                     {
                         Destroy(other.gameObject);
-                        //GeneracionDeEnemigos.Instance.aliensTotales--;
                     });
             }
             EfectosDeSonido.Instance.Shoot();

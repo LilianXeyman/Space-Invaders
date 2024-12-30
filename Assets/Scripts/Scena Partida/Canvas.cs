@@ -71,6 +71,11 @@ public class Canvas : MonoBehaviour
     //Bolenos
     public bool estaJugando;
     //Para la pantalla de opciones
+    //Para el paso de nivel
+    [SerializeField]
+    GameObject siguienteNivelImagen;
+    [SerializeField]
+    float tiempoAnimSigNivel;
     private void Awake()
     {
         if (Instance == null)
@@ -85,6 +90,7 @@ public class Canvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LeanTween.scale(siguienteNivelImagen, Vector3.zero, 0);
         Menu.Instance.tiempo= true;
         estaJugando = false;
         canvasPausa.SetActive(false);
@@ -200,6 +206,10 @@ public class Canvas : MonoBehaviour
     {
         GeneracionDeEnemigos.Instance.canvasVictoria.SetActive(false);
         GeneracionDeEnemigos.Instance.AumentaNivel();
+        LeanTween.scale(siguienteNivelImagen, Vector3.one, tiempoAnimSigNivel).setEase(animCurv).setOnComplete(() =>
+        {
+            LeanTween.scale(siguienteNivelImagen, Vector3.zero, tiempoAnimSigNivel);
+        });
     }
     public void Salir()
     {

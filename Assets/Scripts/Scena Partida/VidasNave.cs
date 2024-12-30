@@ -11,7 +11,7 @@ public class VidasNave : MonoBehaviour
     public int vidasNave;
     //Para todo lo relacionado con el canvas
     [SerializeField]
-    GameObject canvasMuerte;
+    public GameObject canvasMuerte;
     [SerializeField]
     TextMeshProUGUI cuentaVidasNave;
     [SerializeField]

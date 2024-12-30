@@ -15,6 +15,7 @@ TagManager:
   - Skarner
   - Reksai
   - Bunker
+  - Muerte
   layers:
   - Default
   - TransparentFX

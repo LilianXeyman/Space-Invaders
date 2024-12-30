@@ -1,14 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
-public class VidasAliens : MonoBehaviour
+public class Muertexd : MonoBehaviour
 {
-    public static VidasAliens Instance;
-    //Para las vidas de los aliens
-    [SerializeField]
-    public int vidas;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +15,12 @@ public class VidasAliens : MonoBehaviour
     {
         
     }
-    public void Vidas()
+    private void OnTriggerEnter(Collider other)
     {
-        vidas = vidas - 1;
-    }
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Muerte"))
+        if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))
         {
             VidasNave.Instance.canvasMuerte.SetActive(true);
             Canvas.Instance.estaJugando = false;
         }
-    }*/
+    }
 }
