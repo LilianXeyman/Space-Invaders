@@ -14,6 +14,10 @@ public class Proyectil : MonoBehaviour
     //El sistema de puntos me funciona mal voy a probar a poner un contador
     [SerializeField]
     float tiempoPuntos;
+    //Para los powerUps(array)
+    [SerializeField]
+    private GameObject[] powerUps;
+    GameObject powerUpGenerado;
     void Start()
     {
         //proyectilRb=GetComponent<Rigidbody>();
@@ -49,6 +53,10 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))
         {
             Destroy(gameObject);
+            if (Random.value <= 0.2f)
+            {
+                GenerarPowerUpAleatorio();
+            }
             if (other.CompareTag("Skarner") && tiempoPuntos <=0)//En principio ya esta arreglado pero tuve que poner manualmente el tiempo para que se reestableciera que depende de la velocidad de disparo. Si esta se cambia se volveria a tener problemas
             {
                     pUNTOS.Instance.Skarner();
@@ -91,5 +99,11 @@ public class Proyectil : MonoBehaviour
             }
             EfectosDeSonido.Instance.Shoot();
         }
+    }
+    private void GenerarPowerUpAleatorio()
+    {
+        int indiceAleatorio = Random.Range(0, powerUps.Length);
+        powerUpGenerado = Instantiate(powerUps[indiceAleatorio], transform.position, Quaternion.identity);
+        LeanTween.rotateY(powerUpGenerado, 90, 0);
     }
 }

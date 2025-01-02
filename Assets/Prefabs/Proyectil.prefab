@@ -52,10 +52,10 @@ MonoBehaviour:
   fueraDePantalla: 50
   naveElegida: {fileID: 0}
   tiempoPuntos: 0
-  vidasSkarner: 4
-  vidasVelkoz: 2
-  vidasKhazix: 3
-  vidasReksai: 1
+  powerUps:
+  - {fileID: 7318050833424594051, guid: 5b4cb65b07fe0e348a0de7bcde4bf632, type: 3}
+  - {fileID: 6736090990296235724, guid: a1ddf238511d3e6468cd1ae740eb729c, type: 3}
+  - {fileID: 4786265302327726028, guid: 8e46f908c4dd5324ca263dd360d07907, type: 3}
 --- !u!54 &8659189009834674463
 Rigidbody:
   m_ObjectHideFlags: 0

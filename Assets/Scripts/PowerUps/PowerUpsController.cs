@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpsController : MonoBehaviour
+public interface PowerUpsController
 {
-    //Hacer aquí la interfaz de powerUps
+    void Activar(GameObject jugador);
 }
