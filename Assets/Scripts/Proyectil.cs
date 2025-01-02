@@ -53,7 +53,7 @@ public class Proyectil : MonoBehaviour
         if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))
         {
             Destroy(gameObject);
-            if (Random.value <= 0.2f)
+            if (Random.value <= 0.15f)
             {
                 GenerarPowerUpAleatorio();
             }

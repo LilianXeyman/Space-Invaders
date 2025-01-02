@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fbd65dcefb9df4d9bf14b1d1219da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  incrementoVelocidad: 2
+  incrementoVelocidad: 1.5
   duracion: 10
   fueraDePantalla: -15
 --- !u!54 &9103636705397862396

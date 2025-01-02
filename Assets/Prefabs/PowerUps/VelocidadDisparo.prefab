@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6b805de689ce949936d72e72256ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nuevoDisparo: 0.2
+  nuevoDisparo: 0.15
   duracion: 4
   fueraDePantalla: -15
 --- !u!54 &7784135939880249838

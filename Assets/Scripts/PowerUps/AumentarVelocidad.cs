@@ -5,7 +5,7 @@ using UnityEngine;
 public class AumentarVelocidad : MonoBehaviour, PowerUpsController
 {
     [SerializeField]
-    private float incrementoVelocidad = 1.5f;
+    private float incrementoVelocidad = 1.25f;
     [SerializeField]
     private float duracion = 10f;
     [SerializeField]
