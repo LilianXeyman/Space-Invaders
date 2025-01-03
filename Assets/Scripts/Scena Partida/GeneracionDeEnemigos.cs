@@ -85,7 +85,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
                 matrizObjetos[i].Add(alien);
             }
         }
-        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Reksai").Length;
         Debug.Log("Aliens Totales: " + aliensTotales);
     }
     // Update is called once per frame
@@ -112,7 +112,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
         { 
            canvasVictoria.SetActive(true);
         }
-        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Reksai").Length;
         Debug.Log("Aliens Totales: " + aliensTotales);
     }
     public void AumentaNivel() //Poner que cuando se le de al boton de siguiente nivel el totalColumns o el totalRow aumente en 1
@@ -138,7 +138,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
                 matrizObjetos[i].Add(alien);
             }
         }
-        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Reksai").Length;
         Debug.Log("Aliens Totales: " + aliensTotales);
     }
     private void DispararProyectil()//Mirar este codigo otra vez con calma
