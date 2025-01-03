@@ -55,7 +55,7 @@ public class pUNTOS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ActualizarPuntosTotales();
+
     }
     // Update is called once per frame
     void Update()
@@ -64,10 +64,7 @@ public class pUNTOS : MonoBehaviour
         puntosTotalesFinalGanar.text = puntosObtenidos.ToString("000000");
         MaxPuntuacion.Instance.AñadirPuntos(MaxPuntuacion.Instance.record);
     }
-    /*private void ActualizarPuntosTotales()
-    {
-        puntosTotales.text = puntosObtenidos.ToString("0000000000");
-    }*/
+
     public void Skarner()
     {
         if (skarner != null)
@@ -75,7 +72,6 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaSkarner;
         }
         puntosTotales.text = puntosObtenidos.ToString("000000");
-        //GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Khazix()
     {
@@ -84,7 +80,6 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaKhazix;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
-        //GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Velkoz()
     {
@@ -93,7 +88,6 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaVelkoz;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
-        //GeneracionDeEnemigos.Instance.aliensTotales--;
     }
     public void Reksai()
     {
@@ -102,6 +96,5 @@ public class pUNTOS : MonoBehaviour
             puntosObtenidos = puntosObtenidos + sumaReksai;
         }
         puntosTotales.text = puntosObtenidos.ToString("0000000");
-        //GeneracionDeEnemigos.Instance.aliensTotales--;
     }
 }

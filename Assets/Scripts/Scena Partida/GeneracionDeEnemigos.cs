@@ -52,6 +52,8 @@ public class GeneracionDeEnemigos : MonoBehaviour
     public int nivel;
     [SerializeField]
     public TextMeshProUGUI numeroNivel;
+
+    private int aliensIniciales;
     private void Awake()
     {
         if (Instance == null)
@@ -66,6 +68,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
     void Start()
     {
         CrearNivel();
+        aliensIniciales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Reksai").Length;
     }
     //Funcion para llamar al empezar un nuevo nivel
     private void CrearNivel()
@@ -97,7 +100,7 @@ public class GeneracionDeEnemigos : MonoBehaviour
             if (tiempoDisparo <= 0)
             {
                 DispararProyectil();
-                if (aliensTotales >= aliensTotales - aliensTotales/2)
+                if (aliensTotales >= aliensIniciales-aliensIniciales/2)
                 {
                     tiempoDisparo = disparo;
                 }
