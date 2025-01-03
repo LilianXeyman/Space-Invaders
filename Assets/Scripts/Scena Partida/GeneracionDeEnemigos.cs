@@ -108,11 +108,12 @@ public class GeneracionDeEnemigos : MonoBehaviour
             }
             MoverFilas();
         }
-        Debug.Log("Aliens Totales: " + aliensTotales);
         if (aliensTotales <= 0)
         { 
            canvasVictoria.SetActive(true);
         }
+        aliensTotales = GameObject.FindGameObjectsWithTag("Velkoz").Length + GameObject.FindGameObjectsWithTag("Khazix").Length + GameObject.FindGameObjectsWithTag("Skarner").Length + GameObject.FindGameObjectsWithTag("Velkoz").Length;
+        Debug.Log("Aliens Totales: " + aliensTotales);
     }
     public void AumentaNivel() //Poner que cuando se le de al boton de siguiente nivel el totalColumns o el totalRow aumente en 1
     {
