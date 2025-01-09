@@ -363,7 +363,10 @@ MonoBehaviour:
   fueraDePantalla: 50
   velproyectil: 25
   tiempoPuntos: 0
-  colliderGrande: {fileID: 5588627118942180180, guid: 0a5f3188930d74749ade34eaae7e3f5a, type: 3}
+  colliderGrande: {fileID: 6464954528760893990, guid: 4fa7a3286e1517a44a877170df051b74, type: 3}
+  ondaExpansivaCreada: {fileID: 0}
+  ondaExpansiva: 15
+  tiempoOndaExpansiva: 1
 --- !u!1 &9048257656594146997
 GameObject:
   m_ObjectHideFlags: 0

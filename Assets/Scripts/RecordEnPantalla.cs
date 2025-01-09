@@ -11,7 +11,7 @@ public class RecordEnPantalla : MonoBehaviour
     void Start()
     {
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-        textMeshProUGUI.text = PlayerPrefs.GetInt("Record").ToString();//Ahora el error esta aqui :( Preguntar
+        textMeshProUGUI.text = PlayerPrefs.GetInt("Record").ToString();
         MaxPuntuacion.Instance.añadirPuntosEvent += CambiarTexto;
     }
     public void CambiarTexto(object sender, MaxPuntuacion.AñadirPuntosEventArgs e)

@@ -16,6 +16,7 @@ TagManager:
   - Reksai
   - Bunker
   - Muerte
+  - ColliderBall
   layers:
   - Default
   - TransparentFX
