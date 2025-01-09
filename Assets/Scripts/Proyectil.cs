@@ -20,12 +20,11 @@ public class Proyectil : MonoBehaviour
     GameObject powerUpGenerado;
     void Start()
     {
-        //proyectilRb=GetComponent<Rigidbody>();
+        
     }
     // Update is called once per frame
     void Update()
     {
-        //proyectilRb.AddForce(new Vector3(0,10,0) * velproyectil);
         gameObject.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y + velproyectil * Time.deltaTime, gameObject.transform.position.z);
         if(gameObject.transform.position.y >= fueraDePantalla)//También se puede hacer con un collider o con una cuenta regresiva de tiempo
         {

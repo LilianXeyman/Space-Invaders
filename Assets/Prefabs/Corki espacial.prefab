@@ -85,6 +85,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b44be95797a0c3d4eaeae9a528758b60, type: 3}
       insertIndex: -1
       addedObject: {fileID: -6216797445030426168}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b44be95797a0c3d4eaeae9a528758b60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8087591626553892881}
   m_SourcePrefab: {fileID: 100100000, guid: b44be95797a0c3d4eaeae9a528758b60, type: 3}
 --- !u!1 &1541416103042748275 stripped
 GameObject:
@@ -111,8 +114,7 @@ MonoBehaviour:
   proyectil: {fileID: 566137746270293450, guid: 4f52e9663aee583459b528b866e1bef8, type: 3}
   tiempoDisparo: 0
   disparo: 0.7
-  efectosDeSonido: {fileID: 0}
-  playerShoot: {fileID: 8300000, guid: b879ced845fedb04aba9d519e1c2ce01, type: 3}
+  disparoOriginal: 0.6
 --- !u!54 &6404884245350487154
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,3 +165,17 @@ CapsuleCollider:
   m_Height: 0.0124152
   m_Direction: 1
   m_Center: {x: 1.0505485e-14, y: 0.0000014100225, z: 0.000010590069}
+--- !u!114 &8087591626553892881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541416103042748275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fadec94994b0554c8f6f63b8cd61337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  superDisparo: {fileID: 5731691811444459270, guid: 236c98e79f83cde4f84e5d8fbcfea4e5, type: 3}
+  cooldownSuperDisparo: 5
