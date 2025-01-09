@@ -61,7 +61,6 @@ public class ColliderGrande : MonoBehaviour
                     Destroy(other.gameObject);
                 });
             }
-            EfectosDeSonido.Instance.Shoot();//Cambiar Efecto De Sonido
         }
     }
 }

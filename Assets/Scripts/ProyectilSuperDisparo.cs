@@ -104,6 +104,7 @@ public class ProyectilSuperDisparo : MonoBehaviour
         ondaExpansivaCreada = Instantiate(colliderGrande.gameObject, transform.position, Quaternion.identity);
         LeanTween.scale(ondaExpansivaCreada, Vector3.zero, 0).setOnComplete(() =>
         {
+            EfectosDeSonido.Instance.Explosion();
             LeanTween.scale(ondaExpansivaCreada, Vector3.one * ondaExpansiva, tiempoOndaExpansiva).setOnComplete(() =>
             {
                 Destroy(ondaExpansivaCreada);

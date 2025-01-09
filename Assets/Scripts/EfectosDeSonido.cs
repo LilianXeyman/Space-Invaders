@@ -7,7 +7,7 @@ public class EfectosDeSonido : MonoBehaviour
     public static EfectosDeSonido Instance;
     //Sonido
     public AudioSource efectosDeSonido;//efectosDeSonido
-    public AudioClip enemyShoot, playerShoot, shoot;
+    public AudioClip enemyShoot, playerShoot, shoot, explosion;
     private void Awake()
     {
         if (Instance == null)
@@ -32,6 +32,11 @@ public class EfectosDeSonido : MonoBehaviour
     public void Shoot()
     {
         efectosDeSonido.clip = shoot;
+        efectosDeSonido.Play();
+    }
+    public void Explosion()
+    {
+        efectosDeSonido.clip = explosion;
         efectosDeSonido.Play();
     }
 }
