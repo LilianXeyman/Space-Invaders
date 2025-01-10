@@ -35,7 +35,7 @@ public class ProyectilSuperDisparo : MonoBehaviour
     }
     void Start()
     {
-        
+        Debug.Log("Created");
     }
 
     // Update is called once per frame
@@ -49,6 +49,7 @@ public class ProyectilSuperDisparo : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigger " + other.gameObject.transform.name);
         if (other.CompareTag("Skarner") || other.CompareTag("Velkoz") || other.CompareTag("Reksai") || other.CompareTag("Khazix"))
         {
             Destroy(gameObject);
@@ -101,6 +102,7 @@ public class ProyectilSuperDisparo : MonoBehaviour
     }
     public void CrearOndaExpansiva()
     {
+        Debug.Log("Onda");
         ondaExpansivaCreada = Instantiate(colliderGrande.gameObject, transform.position, Quaternion.identity);
         LeanTween.scale(ondaExpansivaCreada, Vector3.zero, 0).setOnComplete(() =>
         {

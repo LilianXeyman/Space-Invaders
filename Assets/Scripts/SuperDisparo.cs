@@ -19,7 +19,7 @@ public class SuperDisparo : MonoBehaviour
     void Update()
     {
         cooldownSuperDisparo=cooldownSuperDisparo-Time.deltaTime;
-        if (cooldownSuperDisparo <= 0 && Input.GetButtonDown("Fire1"))
+        if (cooldownSuperDisparo <= 0 && Input.GetButtonDown("Fire1") && Canvas.Instance.estaJugando==true)
         {
             cooldownSuperDisparo = 5f;
             Instantiate(superDisparo, transform.position, Quaternion.identity);
